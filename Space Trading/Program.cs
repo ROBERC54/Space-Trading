@@ -6,7 +6,7 @@ namespace Space_Trading
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            new APP().Run();
         }
     }
 }
