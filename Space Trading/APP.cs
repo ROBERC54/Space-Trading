@@ -7,8 +7,8 @@ namespace Space_Trading
     class APP
     {
         public void Run()
-        { 
-            
+        {
+            new ItemClass().Run();
         }
     }
 }
