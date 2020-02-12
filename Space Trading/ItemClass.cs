@@ -12,16 +12,27 @@ namespace Space_Trading
         public void Run()
         {
             string itemPath = "Item List.txt";
-            List<string> items = File.ReadAllLines(itemPath).ToList();
+            List<string> Citems = File.ReadAllLines(itemPath).ToList();
 
-            foreach (string item in items)
+
+            //foreach (string Citem in Citems)
+            //{
+            //    Console.WriteLine(Citem);
+
+            //}
+
+            List<string> Fitems = File.ReadAllLines(itemPath).ToList();
+            foreach (string Fitem in Fitems)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(Fitem);
+                //Fitems.Add("Charlie Murphy");
+
+
             }
 
             //items.Add("");
 
-            File.WriteAllLines(itemPath, items);
+
 
             Console.ReadLine();
 
