@@ -8,7 +8,7 @@ namespace Space_Trading
     {
         public void Run()
         {
-            new Class().Run();
+            new Main_Menu().Run();
         }
     }
 }
