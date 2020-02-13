@@ -14,14 +14,13 @@ namespace Space_Trading
             string itemPath = "Item List.txt";
             List<string> items = File.ReadAllLines(itemPath).ToList();
 
+
             foreach (string item in items)
             {
                 Console.WriteLine(item);
+
             }
 
-            //items.Add("");
-
-            File.WriteAllLines(itemPath, items);
 
             Console.ReadLine();
 
