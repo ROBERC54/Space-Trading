@@ -10,4 +10,7 @@
     <None Include="bin\Debug\netcoreapp3.1\Planets.txt" />
     <None Include="bin\Debug\netcoreapp3.1\Item List.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="App2.cs" />
+  </ItemGroup>
 </Project>

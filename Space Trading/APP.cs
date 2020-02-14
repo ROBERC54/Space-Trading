@@ -4,11 +4,10 @@ using System.Text;
 
 namespace Space_Trading
 {
-    class CrAPP
+    class APP
     {
         public void Run()
         {
-            new PlanetClass().Run();
         }
     }
 }
