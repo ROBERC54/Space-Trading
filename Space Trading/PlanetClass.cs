@@ -9,22 +9,24 @@ namespace Space_Trading
 {
     public class PlanetClass
     {
+
         public void Run()
         {
             string planetPath = "Planets.txt";
 
             List<Planet> planets = new List<Planet>();
             List<string> lines = File.ReadAllLines(planetPath).ToList();
-
+            List<string[]> entriesList = new List<string[]>();
             foreach (var line in lines)
             {
-                string[] entries = line.Split(',');
+                string[] TheseEntries = line.Split(',');
+                entriesList.Add(TheseEntries);
                 Planet newPlanet = new Planet();
 
-                newPlanet.PlanetName = entries[0];
-                newPlanet.PlanetStar = entries[1];
-                newPlanet.PlanetInFromStar = int.Parse(entries[2]);
-                newPlanet.PlanetMass = double.Parse(entries[3]);
+                newPlanet.PlanetName = TheseEntries[0];
+                newPlanet.PlanetStar = TheseEntries[1];
+                newPlanet.PlanetInFromStar = int.Parse(TheseEntries[2]);
+                newPlanet.PlanetMass = double.Parse(TheseEntries[3]);
                 //newPlanet.PlanetXCoord = double.Parse(entries[4]);
                 //newPlanet.PlanetYCoord = double.Parse(entries[5]);
 
@@ -35,7 +37,19 @@ namespace Space_Trading
             {
                 Console.WriteLine($"{ planet.PlanetName } is the { planet.PlanetInFromStar }rd planet from { planet.PlanetStar }, and has a mass of { planet.PlanetMass }.");
             }
+            PlanetMass(0);
+            void PlanetMass(int index)
+            {
+                double ThisPlanetMass;
+                int thisplanet = index;
+                string[] entries = entriesList[thisplanet];
+                ThisPlanetMass = double.Parse(entries[3]);
+            }
 
+            //foreach (var planet in planets)
+            //{
+            //    if (planet.
+            //}
             Console.ReadLine();
 
 

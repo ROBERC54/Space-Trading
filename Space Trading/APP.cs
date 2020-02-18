@@ -8,6 +8,7 @@ namespace Space_Trading
     {
         public void Run()
         {
+            new StarClass().Run();
         }
     }
 }

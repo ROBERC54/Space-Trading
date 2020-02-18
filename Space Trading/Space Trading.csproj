@@ -9,8 +9,12 @@
   <ItemGroup>
     <None Include="bin\Debug\netcoreapp3.1\Planets.txt" />
     <None Include="bin\Debug\netcoreapp3.1\Item List.txt" />
+    <None Include="bin\Debug\netcoreapp3.1\Stars .txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="App2.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Text Files\" />
   </ItemGroup>
 </Project>

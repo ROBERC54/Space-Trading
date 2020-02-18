@@ -15,8 +15,8 @@ namespace Space_Trading
             do
             {
                 Console.WriteLine("\n _________  _______   ______     _____    _________");
-                Console.WriteLine("|___   ___| | ___   ) | __  )    | __ )   |   _____|");
-                Console.WriteLine("    | |     | |  )  | | | )  )   | | ) )  |  |_____");
+                Console.WriteLine("|___   ___| | ___   ) | ___  )   | ___ )   |   _____|");
+                Console.WriteLine("    | |     | |__)  | | |__)  )  | |  ) )  |  |_____");
                 Console.WriteLine("    | |     |    ___| |  ___   ) | |  | | |   _____|");
                 Console.WriteLine("    | |     |     )   |  |  )  | | |  | | |  |");
                 Console.WriteLine("    | |     |  |)  )  |  |  |  | | |__| | |  |_____");
