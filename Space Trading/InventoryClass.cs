@@ -14,9 +14,9 @@ namespace Space_Trading
             string itemPath = "Item List.txt";
 
             List<string> items = File.ReadAllLines(itemPath).ToList();
-            string NPCPath = "NPC Inv.txt";
+            string NPCPath = "/Users/matthewmoore/Documents/MSSA/Coding/Project/Peer Programming/Space-Trading/Space Trading/Text Files/NPC Inv.txt";
             string TextFilePath = @"Text Files\";//target directory or folder
-            System.IO.File.WriteAllLines($@"{NPCPath}", items);
+            //System.IO.File.WriteAllLines($@"{NPCPath}", items);
             System.IO.DirectoryInfo dirInfo = new System.IO.DirectoryInfo($"{NPCPath}");
             string dirPathName = dirInfo.FullName;
             //Console.WriteLine(dirPathName);  //exists just to show the path as string
