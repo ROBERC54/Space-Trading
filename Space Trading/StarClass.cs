@@ -9,25 +9,14 @@ namespace Space_Trading
 {
     public class StarClass
     {
+        string starPath = "Stars .txt";
+        List<Star> stars = new List<Star>();
+
         public void Run()
         {
-            string starPath = "Stars .txt";
-            List<Star> stars = new List<Star>();
-            List<string> lines = File.ReadAllLines(starPath).ToList();
+            stars = new StarClass().generateStarList(starPath);
 
 
-            foreach (var line in lines)
-            {
-                string[] entries = line.Split(",");
-                Star newStar = new Star();
-
-                newStar.StarName = entries[0];
-                newStar.StarMass = double.Parse(entries[1]);
-                newStar.StarXCoord = int.Parse(entries[2]);
-                newStar.StarYCoord = int.Parse(entries[3]);
-
-                stars.Add(newStar);
-            }
 
             foreach (var star in stars)
             {
@@ -36,6 +25,49 @@ namespace Space_Trading
 
 
             Console.ReadLine();
+        }
+
+        public List<int> getStarXCoord()
+        {
+
+            stars = new StarClass().generateStarList(starPath);
+            List<int> xes = new List<int>();
+            foreach (var star in stars)
+            {
+                xes.Add(star.StarXCoord);
+            }
+            return xes;
+        }
+        public List<int> getStarYCoord()
+        {
+
+            stars = new StarClass().generateStarList(starPath);
+            List<int> yses = new List<int>();
+            foreach (var star in stars)
+            {
+                yses.Add(star.StarYCoord);
+            }
+            return yses;
+        }
+
+        public List<Star> generateStarList(string starPath)
+        {
+            List<string> lines = File.ReadAllLines(starPath).ToList();
+            List<Star> stars = new List<Star>();
+
+            foreach (var line in lines)
+            {
+                string[] entries = line.Split(",");
+                Star newStar = new Star();
+                newStar.StarName = entries[0];
+                newStar.StarMass = double.Parse(entries[1]);
+                newStar.StarXCoord = int.Parse(entries[2]);
+                newStar.StarYCoord = int.Parse(entries[3]);
+
+                stars.Add(newStar);
+
+            }
+            return stars;
         }
     }
 }
