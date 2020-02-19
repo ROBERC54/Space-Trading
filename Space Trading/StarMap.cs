@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace Space_Trading
 {
-    public class Map_Class
+    public class StarMap
     {
         public void Run()
         {
@@ -14,17 +10,13 @@ namespace Space_Trading
             int usery = 1;
             do
             {
-                // This is where we found inspiration for our map function
-                //https://social.msdn.microsoft.com/Forums/en-US/38cecb47-ef2c-47d3-ae1d-e53a1c56e2e9/battle-ship-coding-in-c-using-console-application?forum=csharpgeneral
                 Console.Clear();
-                Console.WriteLine("\nmovement: left = a | right = d | up = w | down = s | quit = q\n");
+                Console.WriteLine("\nmovement: left = a | right = d | up = w | down = s | return to star chart = q\n");
                 int gridSize = 30;
 
                 int Row;
 
                 int Column;
-
-                //Console.WriteLine("Welcome to the Battleship");
 
                 string[,] grid = new string[gridSize, gridSize];
 
@@ -38,16 +30,7 @@ namespace Space_Trading
                     }
                 }
 
-                StarClass starClass1 = new StarClass();
-                List<int> xes = starClass1.getStarXCoord();
-                List<int> yses = starClass1.getStarYCoord();
-                for (int i = 0; i < xes.Count; i++)
-                {
-                    grid[xes[i], yses[i]] = "S";
-                }
-
                 string characterPos = "<";
-
                 for (Row = 0; Row < gridSize; Row++)
                 {
 
@@ -63,17 +46,7 @@ namespace Space_Trading
                 }
                 var key = mapScreenSelect();
                 (quit, userx, usery) = MoveMent(key, userx, usery);
-                for (int i = 0; i < xes.Count; i++)
-                {
-                    if ((xes[i], yses[i]) == (userx, usery))
-                    {
-                        new StarMap().Run();
-                    }
-                }
-
-
             } while (!quit);
-
         }
         private ConsoleKey mapScreenSelect()
         {
