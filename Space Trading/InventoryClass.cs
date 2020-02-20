@@ -62,8 +62,37 @@ namespace Space_Trading
 
         public void RunProtagonist()
         {
-
+            string itemPath = "Item List.txt";
             string protPath = RunNPCgen() + "Protagonist Inventory.txt";
+
+            List<string> items = File.ReadAllLines(itemPath).ToList();
+            List<string> inventory = new List<string>();
+            Random prng = new Random();
+            for (int i = 0; i < 10;)
+            {
+                foreach (string item in items)  //goal is to flow through possible items in Item List.txt and grab ten/arbitrary number
+                {
+                    //int i = 0;
+                    if (i < 10)
+                    {
+                        if (0 == prng.Next(0, 9))
+                        {
+                            inventory.Add(item);
+                            i++;
+
+                        }
+                    }
+
+                }
+            }
+            //inventory.Add($"{Console.ReadLine()}");
+            File.WriteAllLines(protPath, inventory);
+            //if you need to see what's in the player's inventory, use this->
+            foreach (string item in inventory)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadLine();
         }
         //public void Run()
         //{   //Reads from Protagonist Inventory.txt

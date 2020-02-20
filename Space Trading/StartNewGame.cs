@@ -63,7 +63,7 @@ namespace Space_Trading
             Console.WriteLine("Give them whatever you can find in exchange for currency!");
             Console.WriteLine("Press any key to continue:");
             //TODO!:generate a player Inventory
-            //new InventoryClass().RunNPC();
+            new InventoryClass().RunProtagonist();
             //TODO!:generate a player stat sheet
             //
 
