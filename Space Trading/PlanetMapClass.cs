@@ -130,6 +130,3 @@ namespace Space_Trading
         }
     }
 }
-
-    }
-}
