@@ -57,7 +57,7 @@ namespace Space_Trading
 
             foreach (var line in lines)
             {
-                string[] entries = line.Split(",");
+                string[] entries = line.Split(", ");
                 Star newStar = new Star();
                 newStar.StarName = entries[0];
                 newStar.StarMass = double.Parse(entries[1]);
@@ -68,6 +68,13 @@ namespace Space_Trading
 
             }
             return stars;
+        }
+
+        internal Star StarAt(int userx, int usery)
+        {
+            return stars.Where(s => s.StarXCoord == userx
+                                 && s.StarYCoord == usery)
+                        .Single();
         }
     }
 }
