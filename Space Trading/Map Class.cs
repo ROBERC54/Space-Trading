@@ -52,7 +52,7 @@ namespace Space_Trading
                 BlackHoleClass blackHoleClass1 = new BlackHoleClass();
                 List<int> blxes = blackHoleClass1.getBlackHoleXCoord();
                 List<int> blyses = blackHoleClass1.getBlackHoleYCoord();
-                for (int i = 0; i < xes.Count; i++)
+                for (int i = 0; i < blxes.Count; i++)
                 {
                     grid[blxes[i], blyses[i]] = " ";
                 }
@@ -81,7 +81,10 @@ namespace Space_Trading
                         var starName = starClass1.StarAt(userx, usery).StarName;
                         starMap.Run(starName);
                     }
-                    else if ((blxes[i], blyses[i]) == (userx, usery))
+                }
+                for (int i = 0; i < blxes.Count; i++)
+                {
+                    if ((blxes[i], blyses[i]) == (userx, usery))
                     {
                         new Spaghettification().Run();
                     }
