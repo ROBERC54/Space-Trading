@@ -11,6 +11,7 @@
     <None Include="bin\Debug\netcoreapp3.1\Item List.txt" />
     <None Include="bin\Debug\netcoreapp3.1\Stars .txt" />
     <None Include="bin\Debug\netcoreapp3.1\EmptyTextFile.txt" />
+    <None Include="bin\Debug\netcoreapp3.1\Buildings.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="App2.cs" />

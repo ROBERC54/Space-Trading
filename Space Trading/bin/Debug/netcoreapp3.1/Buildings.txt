@@ -1,0 +1,4 @@
+﻿Hospital, 5, 6, 10, 12, H
+Farm, 10, 10, 15, 8, F
+Trading Post, 4, 4, 13, 20, T
+Space Port, 15, 15, 1, 1, S
