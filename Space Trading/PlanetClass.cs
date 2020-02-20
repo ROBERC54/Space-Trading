@@ -21,34 +21,9 @@ namespace Space_Trading
                 Console.WriteLine($"{ planet.PlanetName } is the { planet.PlanetInFromStar }rd planet from { planet.PlanetStar }, and has a mass of { planet.PlanetMass }.");
             }
 
-            //PlanetMass(0);
-            //void PlanetMass(int index)
-            //{
-            //    double ThisPlanetMass;
-            //    int thisplanet = index;
-            //    string[] entries = entriesList[thisplanet];
-            //    ThisPlanetMass = double.Parse(entries[3]);
-            //}
 
-            //foreach (var planet in planets)
-            //{
-            //    if (planet.
-            //}
             Console.ReadLine();
 
-
-
-            //public moon moon1 =
-            //inventory =
-            //GrossPlanetaryProduct =
-            //motivations =
-            //laws();
-            //{
-            //taxrate()
-            //}
-            //inhabitants = list(characters)
-            //sectors =
-            //seasons = 
         }
 
 
