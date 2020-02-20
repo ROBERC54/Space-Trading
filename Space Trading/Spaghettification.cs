@@ -15,26 +15,20 @@ namespace Space_Trading
             do
             {
                 Console.Clear();
-                int gridSize = 30;
 
-                string[,] grid = new string[gridSize, gridSize];
-
-
-                for (int j = 0; j < gridSize; j++)
-                {
-                    for (int i = 0; i < gridSize; i++)
-                    {
-                        grid[j, i] = ";";
-                    }
-                }
-
-                Console.WriteLine("(            (              (\n");
-                Console.WriteLine(" )            )              )\n");
-                Console.WriteLine("(___         (___           (___\n");
-                Console.WriteLine("    )            )              )\n");
-                Console.WriteLine("   (___         (___           (___\n");
-                Console.WriteLine("       )            )              )\n");
-                Console.WriteLine("You're Spaghettified!\n Press Q to return to the main menu.");
+                Console.WriteLine("(            (              (");
+                Console.WriteLine(" )            )              )");
+                Console.WriteLine("(___         (___           (___");
+                Console.WriteLine("    )            )              )");
+                Console.WriteLine("   (___         (___           (___");
+                Console.WriteLine("       )            )              )");
+                Console.WriteLine("        You're Spaghettified!\n Press Q to return to the main menu.");
+                Console.WriteLine("        (            (              (");
+                Console.WriteLine("         )            )              )");
+                Console.WriteLine("        (___         (___           (___");
+                Console.WriteLine("            )            )              )");
+                Console.WriteLine("           (___         (___           (___");
+                Console.WriteLine("               )            )              )");
                 var key = mapScreenSelect();
                 (quit) = MoveMent(key);
             } while (!quit);
