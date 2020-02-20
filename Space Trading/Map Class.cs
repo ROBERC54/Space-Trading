@@ -7,11 +7,14 @@ namespace Space_Trading
 {
     public class Map_Class
     {
+        StarMap starMap = new StarMap();
+
         public void Run()
         {
             bool quit;
             int userx = 1;
             int usery = 1;
+
             do
             {
                 // This is where we found inspiration for our map function
@@ -67,7 +70,8 @@ namespace Space_Trading
                 {
                     if ((xes[i], yses[i]) == (userx, usery))
                     {
-                        new StarMap().Run();
+                        var starName = starClass1.StarAt(userx, usery).StarName;
+                        starMap.Run(starName);
                     }
                 }
 

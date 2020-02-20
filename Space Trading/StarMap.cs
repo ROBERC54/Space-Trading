@@ -7,7 +7,7 @@ namespace Space_Trading
 {
     public class StarMap
     {
-        public void Run()
+        public void Run(string star)
         {
             bool quit;
             int userx = 5;
@@ -41,7 +41,7 @@ namespace Space_Trading
                 List<int> xes = planetClass1.getPlanetXCoord();
                 List<int> yses = planetClass1.getPlanetYCoord();
                 //Console.ReadLine();
-                int numInSys = planetClass1.numPlanets("Sol");
+                int numInSys = planetClass1.numPlanets(star);
 
                 for (int i = 0; i < numInSys; i++)
                 {
