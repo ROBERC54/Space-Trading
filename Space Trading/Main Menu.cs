@@ -52,15 +52,15 @@ namespace Space_Trading
             switch (key)
             {
                 case ConsoleKey.P: //play game
-                    //playGame();
+                    new StartNewGame().Run();
                     break;
 
                 case ConsoleKey.R:
-                    //resumeGame();
+                    new Resume().Run();
                     break;
 
                 case ConsoleKey.H:
-                    //howTo();
+                    new How_To().Run();
                     break;
 
                 case ConsoleKey.Q:
