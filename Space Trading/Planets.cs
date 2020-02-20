@@ -7,7 +7,7 @@ namespace Space_Trading
         public string PlanetStar { get; set; }
         public int PlanetInFromStar { get; set; }
         public double PlanetMass { get; set; }
-        //public double PlanetXCoord { get; set; }
-        //public double PlanetYCoord { get; set; }
+        public int PlanetXCoord { get; set; }
+        public int PlanetYCoord { get; set; }
     }
 }

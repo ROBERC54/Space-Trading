@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
 namespace Space_Trading
 {
     public class StarMap
@@ -6,8 +10,10 @@ namespace Space_Trading
         public void Run()
         {
             bool quit;
-            int userx = 1;
-            int usery = 1;
+            int userx = 5;
+            int usery = 5;
+            //string thisStar = "Sol";
+
             do
             {
                 Console.Clear();
@@ -28,6 +34,18 @@ namespace Space_Trading
                         grid[j, i] = ".";
 
                     }
+                }
+
+                PlanetClass planetClass1 = new PlanetClass();
+                //Console.WriteLine("yowassup");
+                List<int> xes = planetClass1.getPlanetXCoord();
+                List<int> yses = planetClass1.getPlanetYCoord();
+                //Console.ReadLine();
+                int numInSys = planetClass1.numPlanets("Sol");
+
+                for (int i = 0; i < numInSys; i++)
+                {
+                    grid[xes[i], yses[i]] = "P";
                 }
 
                 string characterPos = "<";
