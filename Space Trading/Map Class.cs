@@ -88,7 +88,7 @@ namespace Space_Trading
                     if ((xes[i], yses[i]) == (userx, usery))
                     {
                         var starName = starClass1.StarAt(userx, usery).StarName;
-                        starMap.Run(starName);
+                        starMap.Run();
                     }
                 }
 

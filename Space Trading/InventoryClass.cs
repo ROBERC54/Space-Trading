@@ -56,8 +56,9 @@ namespace Space_Trading
         {   //from game start, initializes an inventory for the player.
             Console.ReadKey();
             string itemPath = "New Item List.txt";
-            string protPath = "Protagonist Inventory.txt";
-            List<string> items = File.ReadAllLines(itemPath).ToList();
+            string protPath = "Protagonist iInventory.txt";
+            List<string> items = generateItemList();
+            File.WriteAllLines(itemPath, items);
             List<string> inventory = new List<string>();
             Random prng = new Random();
             for (int i = 0; i < 10;)
@@ -75,7 +76,7 @@ namespace Space_Trading
                     }
                 }
             }
-            string protDocs = "Protagonist Info.txt";
+            string protDocs = "Protagonist iInfo.txt";
             List<string> info = new List<string>();
             info.Add("18");
             info.Add("10000");
@@ -96,6 +97,17 @@ namespace Space_Trading
             Console.ReadKey();
             new Resume().Run();
             new Map_Class().Run();
+        }
+        public List<string> generateItemList()
+        {
+            List<string> items = new List<string>();
+            items.Add("Apple"); items.Add("Barley"); items.Add("Copper"); items.Add("Donut"); items.Add("Evergreen");
+            items.Add("Fount"); items.Add("Garden gunk"); items.Add("Horseshoe"); items.Add("Icepack"); items.Add("Juniper");
+            items.Add("Kiosk");  items.Add("Lotion"); items.Add("Morsel"); items.Add("Noms"); items.Add("Ocarina");
+            items.Add("Paint"); items.Add("Questionable cicada"); items.Add("Rusted Ruse"); items.Add("Suspect stained glass");
+            items.Add("Tundracycle"); items.Add("Ultraviolet bulb"); items.Add("Vellum"); items.Add("Water");
+            items.Add("Water - soluble ion gas"); items.Add("Yunicycle"); items.Add("Zenith distance tome");
+            return items;
         }
 
         public void buy()

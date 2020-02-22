@@ -22,7 +22,7 @@ namespace Space_Trading
 				{ }
 				Console.Write(lastTime.ElementAt(i));
 			}
-			Console.WriteLine();
+			Console.WriteLine("\nPress any key to continue");
 			Console.ReadKey();
 			new Map_Class().Run();
 		}
