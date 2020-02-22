@@ -48,23 +48,15 @@ namespace Space_Trading
 
                         }
                     }
-
                 }
             }
-            //inventory.Add($"{Console.ReadLine()}");
-            File.WriteAllLines(NPCPath, inventory);
-            foreach (string item in inventory)
-            {
-                Console.WriteLine(item);
-            }
-
         }
 
         public void RunProtagonist()
-        {
-            string itemPath = "Item List.txt";
-            string protPath = RunNPCgen() + "Protagonist Inventory.txt";
-
+        {   //from game start, initializes an inventory for the player.
+            Console.ReadKey();
+            string itemPath = "New Item List.txt";
+            string protPath = "Protagonist Inventory.txt";
             List<string> items = File.ReadAllLines(itemPath).ToList();
             List<string> inventory = new List<string>();
             Random prng = new Random();
@@ -72,7 +64,6 @@ namespace Space_Trading
             {
                 foreach (string item in items)  //goal is to flow through possible items in Item List.txt and grab ten/arbitrary number
                 {
-                    //int i = 0;
                     if (i < 10)
                     {
                         if (0 == prng.Next(0, 9))
@@ -82,33 +73,29 @@ namespace Space_Trading
 
                         }
                     }
-
                 }
             }
-            //inventory.Add($"{Console.ReadLine()}");
-            File.WriteAllLines(protPath, inventory);
+            string protDocs = "Protagonist Info.txt";
+            List<string> info = new List<string>();
+            info.Add("18");
+            info.Add("10000");
+            Console.Clear();
+            Console.WriteLine("What is your name?");
+            string playerName = Console.ReadLine();
+            info.Add(playerName);
+            File.WriteAllLines(protDocs, info);//sets player info
+            Console.WriteLine($"Welcome {playerName}!\nPress any key to continue");
+            File.WriteAllLines(protPath, inventory);//writes 10 random items to Protagonist Inventory document
+            //potential issue.  May need to reset/re-empty ProtInv text file everytime commit to gitHub.  Tests to follow.
             //if you need to see what's in the player's inventory, use this->
-            foreach (string item in inventory)
-            {
-                Console.WriteLine(item);
-            }
+                //foreach (string item in inventory)
+                //{
+                //    Console.WriteLine(item);
+                //}
+                //Console.ReadLine();
             Console.ReadLine();
+            new Main_Menu().Run();
         }
-        //public void Run()
-        //{   //Reads from Protagonist Inventory.txt
-        //    string itemPath = "Protagonist Inventory.txt";
-        //    List<string> items = File.ReadAllLines(itemPath).ToList();
-
-        //    foreach (string item in items)
-        //    {
-        //        Console.WriteLine(item);
-        //    }
-        //    //items.Add("some item");
-
-        //    File.WriteAllLines(itemPath, items);
-
-        //    Console.ReadLine();
-        //}
 
         public void buy()
         {//trying to decide which class is more appropriate to buy/sell from
