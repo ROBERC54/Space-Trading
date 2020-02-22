@@ -93,8 +93,9 @@ namespace Space_Trading
                 //    Console.WriteLine(item);
                 //}
                 //Console.ReadLine();
-            Console.ReadLine();
-            new Main_Menu().Run();
+            Console.ReadKey();
+            new Resume().Run();
+            new Map_Class().Run();
         }
 
         public void buy()
