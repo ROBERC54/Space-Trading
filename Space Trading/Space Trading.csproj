@@ -16,4 +16,9 @@
   <ItemGroup>
     <Compile Remove="App2.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\netcoreapp3.1\New Item List - Copy.txt" />
+    <Content Include="bin\Debug\netcoreapp3.1\Protagonist Info - Copy.txt" />
+    <Content Include="bin\Debug\netcoreapp3.1\Protagonist Inventory - Copy.txt" />
+  </ItemGroup>
 </Project>
