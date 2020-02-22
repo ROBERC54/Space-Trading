@@ -12,6 +12,7 @@
     <None Include="bin\Debug\netcoreapp3.1\Stars .txt" />
     <None Include="bin\Debug\netcoreapp3.1\EmptyTextFile.txt" />
     <None Include="bin\Debug\netcoreapp3.1\Buildings.txt" />
+    <None Include="bin\Debug\netcoreapp3.1\New Item List.txt" />
   </ItemGroup>
 
   <ItemGroup>

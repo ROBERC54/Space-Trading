@@ -10,9 +10,9 @@ namespace Space_Trading
     public class Map_Class
     {
         StarMap starMap = new StarMap();
-        string symbol;
 
-        public void Run()
+
+        public void Run(string symbol)
         {
             bool quit;
             int userx = 1;
