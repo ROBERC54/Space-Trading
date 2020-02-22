@@ -9,8 +9,9 @@ namespace Space_Trading
     public class StarMap
     {
         PlanetMapClass planetMap = new PlanetMapClass();
+        string star;
 
-        public void Run(string star)
+        public void Run()
         {
             bool quit;
             int userx = 5;
