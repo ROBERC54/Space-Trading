@@ -1,19 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
 namespace Space_Trading
 {
     public class PlanetMapClass
     {
+        BuildingClass buildingClass = new BuildingClass();
+
         public void Run(string planet)
         {
             bool quit;
-            int userx = 5;
-            int usery = 5;
-            //string thisStar = "Sol";
+            int userx = 1;
+            int usery = 1;
+
 
             do
             {
                 Console.Clear();
-                Console.WriteLine("\nmovement: left = a | right = d | up = w | down = s | return to star chart = q\n");
+                Console.WriteLine("\nmovement: left = a | right = d | up = w | down = s | return to system map = q\n");
                 int gridSize = 30;
 
                 int Row;
@@ -27,21 +35,21 @@ namespace Space_Trading
                 {
                     for (int i = 0; i < gridSize; i++)
                     {
-                        grid[j, i] = "||";
+                        grid[j, i] = "_";
 
                     }
                 }
 
-                PlanetClass planetClass1 = new PlanetClass();
+                BuildingClass buildingClass1 = new BuildingClass();
                 //Console.WriteLine("yowassup");
-                List<int> xes = planetClass1.getPlanetXCoord();
-                List<int> yses = planetClass1.getPlanetYCoord();
+                List<int> xes = buildingClass1.getBuildingXCoord();
+                List<int> yses = buildingClass1.getBuildingYCoord();
                 //Console.ReadLine();
-                int numInSys = planetClass1.numPlanets(planet);
+                int numInSys = buildingClass1.numBuildings(planet);
 
                 for (int i = 0; i < numInSys; i++)
                 {
-                    grid[xes[i], yses[i]] = "P";
+                    grid[xes[i], yses[i]] = "B";//change to building symbol in the future
                 }
 
                 string characterPos = "<";
@@ -128,8 +136,5 @@ namespace Space_Trading
             }
             return (false, userx, usery);
         }
-    }
-}
-
     }
 }

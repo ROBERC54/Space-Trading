@@ -9,5 +9,6 @@ namespace Space_Trading
         public double PlanetMass { get; set; }
         public int PlanetXCoord { get; set; }
         public int PlanetYCoord { get; set; }
+        public string PlanetSymbol { get; set; }
     }
 }

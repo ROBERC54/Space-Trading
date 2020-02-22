@@ -1,4 +1,9 @@
-﻿Hospital, 5, 6, 10, 12, H
-Farm, 10, 10, 15, 8, F
-Trading Post, 4, 4, 13, 20, T
-Space Port, 15, 15, 1, 1, S
+﻿Hospital, Earth, H, 10, 12, 5, 6
+Hospital, Mars, H, 17, 22, 5, 6
+Hospital, Vulcan, H, 21, 7, 5, 6
+Hospital, Delta Vega, H, 5, 22, 5, 6
+Farm, Earth, F, 15, 8, 10, 10
+Farm, Proxima Centauri B, F, 11, 5, 10, 10
+Moisture Farm, Vulcan, M, 15, 15, 1, 1
+Moisture Farm, Mars, M, 15, 15, 1, 1
+Moisture Farm, Delta Vega, M, 12, 12, 1, 1

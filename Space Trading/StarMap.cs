@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
+using System.IO;
 namespace Space_Trading
 {
     public class StarMap
     {
+        PlanetMapClass planetMap = new PlanetMapClass();
+
         public void Run(string star)
         {
             bool quit;
             int userx = 5;
             int usery = 5;
-            //string thisStar = "Sol";
 
             do
             {
@@ -40,12 +42,13 @@ namespace Space_Trading
                 //Console.WriteLine("yowassup");
                 List<int> xes = planetClass1.getPlanetXCoord();
                 List<int> yses = planetClass1.getPlanetYCoord();
+                List<string> zses = planetClass1.getPlanetSymbol();
                 //Console.ReadLine();
                 int numInSys = planetClass1.numPlanets(star);
 
                 for (int i = 0; i < numInSys; i++)
                 {
-                    grid[xes[i], yses[i]] = "P";
+                    grid[xes[i], yses[i]] = zses[i];
                 }
 
                 string characterPos = "<";
@@ -62,8 +65,19 @@ namespace Space_Trading
                     grid[userx, usery] = characterPos;
 
                 }
+
                 var key = mapScreenSelect();
                 (quit, userx, usery) = MoveMent(key, userx, usery);
+
+                for (int i = 0; i < xes.Count; i++)
+                {
+                    if ((xes[i], yses[i]) == (userx, usery))
+                    {
+                        var planetName = planetClass1.PlanetAt(userx, usery).PlanetName;
+                        planetMap.Run(planetName);
+                    }
+                }
+
             } while (!quit);
         }
         private ConsoleKey mapScreenSelect()

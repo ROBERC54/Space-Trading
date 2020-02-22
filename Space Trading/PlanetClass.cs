@@ -19,14 +19,8 @@ namespace Space_Trading
 
         public void Run()
         {
-            //foreach (var planet in planets)
-            //{
-            //    Console.WriteLine($"{ planet.PlanetName } is the { planet.PlanetInFromStar }rd planet from { planet.PlanetStar }, and has a mass of { planet.PlanetMass }.");
-            //}
-
             Console.ReadLine();
         }
-
 
         public List<int> getPlanetXCoord()
         {
@@ -34,7 +28,6 @@ namespace Space_Trading
             foreach (var planet in planets)
             {
                 xes.Add(planet.PlanetXCoord);
-                //Console.WriteLine($"This planet's xcoord is: {planet.PlanetXCoord}");
             }
             return xes;
         }
@@ -45,9 +38,18 @@ namespace Space_Trading
             foreach (var planet in planets)
             {
                 yses.Add(planet.PlanetYCoord);
-                //Console.WriteLine($"This planet's xcoord is: {planet.PlanetXCoord}");
             }
             return yses;
+        }
+
+        public List<string> getPlanetSymbol()
+        {
+            List<string> zses = new List<string>();
+            foreach (var planet in planets)
+            {
+                zses.Add(planet.PlanetSymbol);
+            }
+            return zses;
         }
 
         public int numPlanets(string star)
@@ -68,10 +70,18 @@ namespace Space_Trading
                 newPlanet.PlanetMass = double.Parse(entries[3]);
                 newPlanet.PlanetXCoord = int.Parse(entries[4]);
                 newPlanet.PlanetYCoord = int.Parse(entries[5]);
+                newPlanet.PlanetSymbol = entries[6];
 
                 planets.Add(newPlanet);
 
             }
+        }
+
+        internal Planet PlanetAt(int userx, int usery)
+        {
+            return planets.Where(p => p.PlanetXCoord == userx
+                                 && p.PlanetYCoord == usery)
+                        .Single();
         }
 
     }

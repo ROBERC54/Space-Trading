@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using System.IO;
 
 namespace Space_Trading
 {
     public class Map_Class
     {
         StarMap starMap = new StarMap();
+        string symbol;
 
         public void Run()
         {
@@ -44,9 +47,13 @@ namespace Space_Trading
                 StarClass starClass1 = new StarClass();
                 List<int> xes = starClass1.getStarXCoord();
                 List<int> yses = starClass1.getStarYCoord();
-                for (int i = 0; i < xes.Count; i++)
+                List<string> zses = starClass1.getStarSymbol();
+
+                int numInSys = starClass1.numStars(symbol);
+
+                for (int i = 0; i < numInSys; i++)
                 {
-                    grid[xes[i], yses[i]] = "S";
+                    grid[xes[i], yses[i]] = zses[i];
                 }
 
                 BlackHoleClass blackHoleClass1 = new BlackHoleClass();
@@ -72,8 +79,10 @@ namespace Space_Trading
                     grid[userx, usery] = characterPos;
 
                 }
+
                 var key = mapScreenSelect();
                 (quit, userx, usery) = MoveMent(key, userx, usery);
+
                 for (int i = 0; i < xes.Count; i++)
                 {
                     if ((xes[i], yses[i]) == (userx, usery))
@@ -82,6 +91,7 @@ namespace Space_Trading
                         starMap.Run(starName);
                     }
                 }
+
                 for (int i = 0; i < blxes.Count; i++)
                 {
                     if ((blxes[i], blyses[i]) == (userx, usery))

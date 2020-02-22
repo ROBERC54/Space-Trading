@@ -12,25 +12,19 @@ namespace Space_Trading
         string starPath = "Stars .txt";
         List<Star> stars = new List<Star>();
 
+        public StarClass()
+        {
+            generateStarList(starPath);
+        }
+
         public void Run()
         {
-            stars = new StarClass().generateStarList(starPath);
-
-
-
-            foreach (var star in stars)
-            {
-                Console.WriteLine($"{star.StarName} is on our game map at ({star.StarXCoord},{star.StarYCoord}), with a mass of {star.StarMass}");
-            }
-
 
             Console.ReadLine();
         }
 
         public List<int> getStarXCoord()
         {
-
-            stars = new StarClass().generateStarList(starPath);
             List<int> xes = new List<int>();
             foreach (var star in stars)
             {
@@ -40,8 +34,6 @@ namespace Space_Trading
         }
         public List<int> getStarYCoord()
         {
-
-            stars = new StarClass().generateStarList(starPath);
             List<int> yses = new List<int>();
             foreach (var star in stars)
             {
@@ -50,7 +42,23 @@ namespace Space_Trading
             return yses;
         }
 
-        public List<Star> generateStarList(string starPath)
+        public List<string> getStarSymbol()
+        {
+            List<string> zses = new List<string>();
+            foreach (var star in stars)
+            {
+                zses.Add(star.StarSymbol);
+            }
+            return zses;
+        }
+
+        public int numStars(string symbol)
+        {
+            return stars.Where(s => s.StarSymbol == symbol)
+                               .Count();
+        }
+
+        public void generateStarList(string starPath)
         {
             List<string> lines = File.ReadAllLines(starPath).ToList();
             List<Star> stars = new List<Star>();
@@ -63,11 +71,11 @@ namespace Space_Trading
                 newStar.StarMass = double.Parse(entries[1]);
                 newStar.StarXCoord = int.Parse(entries[2]);
                 newStar.StarYCoord = int.Parse(entries[3]);
+                newStar.StarSymbol = entries[4];
 
                 stars.Add(newStar);
 
             }
-            return stars;
         }
 
         internal Star StarAt(int userx, int usery)
