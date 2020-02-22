@@ -12,10 +12,10 @@ namespace Space_Trading
         {
             Console.Clear();
             Console.WriteLine("How To");
-            Console.WriteLine("YOU'RE A SPACE TRADER, BOSS!  TRAVERSE THE FARTHEST REACHES OF SPACE AND TRADE SOME GOODS!");
-            Console.WriteLine("PIONEER YOUR WAY THROUGH THE GALAXY VIA SPACESHIP, BUT WATCH OUT FOR THOSE BLACK HOLES!");
-            Console.WriteLine("BUY! SELL! TRADE! TAKE NO LOSSES ON INVENTORY WHILE STAGING YOUR GETAWAY WITH THE GOODS!");
-            Console.WriteLine("WRANGLE UP THOSE BOMB CUSTOMER SATISFACTION SURVEYS AS YOU DROP THEM OFF EXOTIC MISCELLANEA!");
+            Console.WriteLine("YOU'RE A SPACE TRADER, BOSS!\n  TRAVERSE THE FARTHEST REACHES OF SPACE\n AND TRADE SOME GOODS!");
+            Console.WriteLine("PIONEER YOUR WAY THROUGH THE GALAXY\n VIA SPACESHIP, BUT WATCH OUT FOR THOSE BLACK HOLES!");
+            Console.WriteLine("BUY! SELL! TRADE!\n TAKE NO LOSSES ON INVENTORY WHILE STAGING\n YOUR GETAWAY WITH THE GOODS!");
+            Console.WriteLine("WRANGLE UP THOSE BOMB CUSTOMER SATISFACTION SURVEYS\n AS YOU DROP THEM OFF EXOTIC MISCELLANEA!");
             Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPress any key to Continue");
             Console.ReadKey();
             Console.Clear();

@@ -11,7 +11,7 @@ namespace Space_Trading
     {
         public void Run()
         {
-            new StarMap().Run();
+            new Main_Menu().Run();
         }
     }
 }

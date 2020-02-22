@@ -9,9 +9,9 @@ namespace Space_Trading
     public class StarMap
     {
         PlanetMapClass planetMap = new PlanetMapClass();
-        string star;
 
-        public void Run()
+
+        public void Run(string star)
         {
             bool quit;
             int userx = 5;
@@ -45,6 +45,7 @@ namespace Space_Trading
                 List<int> yses = planetClass1.getPlanetYCoord();
                 List<string> zses = planetClass1.getPlanetSymbol();
                 //Console.ReadLine();
+
                 int numInSys = planetClass1.numPlanets(star);
 
                 for (int i = 0; i < numInSys; i++)

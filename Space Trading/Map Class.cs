@@ -51,9 +51,9 @@ namespace Space_Trading
 
                 int numInSys = starClass1.numStars(symbol);
 
-                for (int i = 0; i < numInSys; i++)
+                for (int i = 0; i < xes.Count; i++)
                 {
-                    grid[xes[i], yses[i]] = zses[i];
+                    grid[xes[i], yses[i]] = "S";
                 }
 
                 BlackHoleClass blackHoleClass1 = new BlackHoleClass();
