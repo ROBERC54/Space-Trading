@@ -13,9 +13,7 @@
     <None Include="bin\Debug\netcoreapp3.1\EmptyTextFile.txt" />
     <None Include="bin\Debug\netcoreapp3.1\Buildings.txt" />
   </ItemGroup>
-<<<<<<< HEAD
 
-=======
   <ItemGroup>
     <Compile Remove="App2.cs" />
   </ItemGroup>
@@ -24,5 +22,5 @@
     <Content Include="bin\Debug\netcoreapp3.1\Protagonist Info - Copy.txt" />
     <Content Include="bin\Debug\netcoreapp3.1\Protagonist Inventory - Copy.txt" />
   </ItemGroup>
->>>>>>> master
+
 </Project>

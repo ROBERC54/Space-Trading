@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space Trading", "Space Trading\Space Trading.csproj", "{6AE15B1E-C8ED-4FAC-83A4-061B49B41D9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space Trading", "Space Trading\Space Trading.csproj", "{8D505BEE-D923-4176-9454-8A64DEAF5627}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6AE15B1E-C8ED-4FAC-83A4-061B49B41D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6AE15B1E-C8ED-4FAC-83A4-061B49B41D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6AE15B1E-C8ED-4FAC-83A4-061B49B41D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6AE15B1E-C8ED-4FAC-83A4-061B49B41D9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D505BEE-D923-4176-9454-8A64DEAF5627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D505BEE-D923-4176-9454-8A64DEAF5627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D505BEE-D923-4176-9454-8A64DEAF5627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D505BEE-D923-4176-9454-8A64DEAF5627}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
