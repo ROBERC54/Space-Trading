@@ -11,10 +11,12 @@ namespace Space_Trading
     {
         BuildingClass buildingClass = new BuildingClass();
         string planet;
+        int season;
 
-        public void Run(string planetName)
+        public void Run(string planetName, int seasonNum)
         {
             planet = planetName;
+            season = seasonNum;
             Run();
         }
         public void Run()
@@ -84,7 +86,7 @@ namespace Space_Trading
                         Console.WriteLine($"Now entering a {buildingName} on {planet}:");
                         Console.WriteLine("Press any key to continue:");
                         Console.ReadKey();
-                        //barterClass.Run(planet, buildingName);
+                        new barterClass().Run(planet, buildingName, season);
                     }
                 }
             } while (!quit);
