@@ -81,6 +81,10 @@ namespace Space_Trading
                     if ((xes[i], yses[i]) == (userx, usery))
                     {
                         var planetName = planetClass1.PlanetAt(userx, usery).PlanetName;
+                        Console.Clear();
+                        Console.WriteLine($"Now entering the planet {planetName}:");
+                        Console.WriteLine("Press any key to continue:");
+                        Console.ReadKey();
                         planetMap.Run(planetName);
                     }
                 }
