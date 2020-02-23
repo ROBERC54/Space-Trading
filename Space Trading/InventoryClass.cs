@@ -56,7 +56,7 @@ namespace Space_Trading
         {   //from game start, initializes an inventory for the player.
             Console.ReadKey();
             string itemPath = "New Item List.txt";
-            string protPath = "Protagonist iInventory.txt";
+            string protPath = "Protagonist Inventory.txt";
             List<string> items = generateItemList();
             File.WriteAllLines(itemPath, items);
             List<string> inventory = new List<string>();
@@ -76,7 +76,7 @@ namespace Space_Trading
                     }
                 }
             }
-            string protDocs = "Protagonist iInfo.txt";
+            string protDocs = "Protagonist Info.txt";
             List<string> info = new List<string>();
             info.Add("18");
             info.Add("10000");

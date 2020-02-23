@@ -84,6 +84,7 @@ namespace Space_Trading
                         Console.WriteLine($"Now entering a {buildingName} on {planet}:");
                         Console.WriteLine("Press any key to continue:");
                         Console.ReadKey();
+                        //barterClass.Run(planet, buildingName);
                     }
                 }
             } while (!quit);
