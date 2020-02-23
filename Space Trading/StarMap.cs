@@ -11,6 +11,12 @@ namespace Space_Trading
         PlanetMapClass planetMap = new PlanetMapClass();
         string star;
 
+
+        public void Run(string starName)
+        {
+            star = starName;
+            Run();
+        }
         public void Run()
         {
             bool quit;
@@ -41,13 +47,13 @@ namespace Space_Trading
 
                 PlanetClass planetClass1 = new PlanetClass();
                 //Console.WriteLine("yowassup");
-                List<int> xes = planetClass1.getPlanetXCoord();
-                List<int> yses = planetClass1.getPlanetYCoord();
-                List<string> zses = planetClass1.getPlanetSymbol();
+                int inSysCount = planetClass1.planetsInSys(star);
+                List<int> xes = planetClass1.getPlanetXCoord(star);
+                List<int> yses = planetClass1.getPlanetYCoord(star);
+                List<string> zses = planetClass1.getPlanetSymbol(star);
                 //Console.ReadLine();
-                int numInSys = planetClass1.numPlanets(star);
-
-                for (int i = 0; i < numInSys; i++)
+                int numInSys = planetClass1.numPlanets(star);//use inSysCount until this works
+                for (int i = 0; i < inSysCount; i++)
                 {
                     grid[xes[i], yses[i]] = zses[i];
                 }

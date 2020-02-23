@@ -49,7 +49,7 @@ namespace Space_Trading
                 List<int> yses = starClass1.getStarYCoord();
                 List<string> zses = starClass1.getStarSymbol();
 
-                int numInSys = starClass1.numStars(symbol);
+                int numInSys = starClass1.numStars(symbol);//use xes.Count until this works
 
                 for (int i = 0; i < xes.Count; i++)
                 {
@@ -88,7 +88,11 @@ namespace Space_Trading
                     if ((xes[i], yses[i]) == (userx, usery))
                     {
                         var starName = starClass1.StarAt(userx, usery).StarName;
-                        starMap.Run();
+                        Console.Clear();
+                        Console.WriteLine($"Now entering the {starName} system:");
+                        Console.WriteLine("Press any key to continue:");
+                        Console.ReadKey();
+                        starMap.Run(starName);
                     }
                 }
 
