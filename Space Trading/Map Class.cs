@@ -65,6 +65,7 @@ namespace Space_Trading
                 }
 
                 string characterPos = "<";
+                grid[userx, usery] = characterPos;
 
                 for (Row = 0; Row < gridSize; Row++)
                 {
@@ -76,7 +77,6 @@ namespace Space_Trading
                         Console.Write(grid[Column, Row] + " ");
                     }
 
-                    grid[userx, usery] = characterPos;
 
                 }
 
