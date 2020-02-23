@@ -1,8 +1,8 @@
-﻿Hospital, Earth, H, 10, 12, 5, 6
-Hospital, Mars, H, 17, 22, 5, 6
-Hospital, Vulcan, H, 21, 7, 5, 6
-Hospital, Delta Vega, H, 5, 22, 5, 6
-Farm, Earth, F, 15, 8, 10, 10
+﻿Hospital Supply, Earth, H, 3, 4, 5, 6
+Hospital Supply, Mars, H, 17, 22, 5, 6
+Hospital Supply, Vulcan, H, 21, 7, 5, 6
+Hospital Supply, Delta Vega, H, 5, 22, 5, 6
+Farm, Earth, F, 3, 1, 10, 10
 Farm, Proxima Centauri B, F, 11, 5, 10, 10
 Moisture Farm, Vulcan, M, 15, 15, 1, 1
 Moisture Farm, Mars, M, 15, 15, 1, 1

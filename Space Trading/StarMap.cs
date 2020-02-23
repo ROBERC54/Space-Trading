@@ -10,6 +10,7 @@ namespace Space_Trading
     {
         PlanetMapClass planetMap = new PlanetMapClass();
         string star;
+        Random prng = new Random();
 
 
         public void Run(string starName)
@@ -86,7 +87,8 @@ namespace Space_Trading
                         Console.WriteLine($"Now entering the planet {planetName}:");
                         Console.WriteLine("Press any key to continue:");
                         Console.ReadKey();
-                        planetMap.Run(planetName);
+                        int season = prng.Next(0, 3);
+                        planetMap.Run(planetName, season);
                     }
                 }
 
