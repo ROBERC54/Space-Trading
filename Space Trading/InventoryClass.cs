@@ -86,14 +86,14 @@ namespace Space_Trading
             File.WriteAllLines(protDocs, info);//sets player info
             Console.WriteLine($"Welcome {playerName}!\nPress any key to continue");
             File.WriteAllLines(protPath, inventory);//writes 10 random items to Protagonist Inventory document
-            //potential issue.  May need to reset/re-empty ProtInv text file everytime commit to gitHub.  Tests to follow.
-            //if you need to see what's in the player's inventory, use this->
-                //foreach (string item in inventory)
-                //{
-                //    Console.WriteLine(item);
-                //}
-                //Console.ReadLine();
-            Console.ReadKey();
+                                                    //potential issue.  May need to reset/re-empty ProtInv text file everytime commit to gitHub.  Tests to follow.
+                                                    //if you need to see what's in the player's inventory, use this->
+                                                    //foreach (string item in inventory)
+                                                    //{
+                                                    //    Console.WriteLine(item);
+                                                    //}
+                                                    //Console.ReadLine();
+
             new Resume().Run();
             new Map_Class().Run();
         }
