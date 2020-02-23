@@ -51,7 +51,7 @@ namespace Space_Trading
 
                 int numInSys = starClass1.numStars(symbol);
 
-                for (int i = 0; i < numInSys; i++)
+                for (int i = 0; i < xes.Count; i++)
                 {
                     grid[xes[i], yses[i]] = zses[i];
                 }
@@ -63,9 +63,9 @@ namespace Space_Trading
                 {
                     grid[blxes[i], blyses[i]] = " ";
                 }
-
+                    
                 string characterPos = "<";
-                grid[userx, usery] = characterPos;
+                    grid[userx, usery] = characterPos;
 
                 for (Row = 0; Row < gridSize; Row++)
                 {
