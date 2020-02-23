@@ -22,32 +22,41 @@ namespace Space_Trading
             Console.ReadLine();
         }
 
-        public List<int> getPlanetXCoord()
+        public List<int> getPlanetXCoord(string starName)
         {
             List<int> xes = new List<int>();
             foreach (var planet in planets)
             {
-                xes.Add(planet.PlanetXCoord);
+                if (planet.PlanetStar == starName)
+                {
+                    xes.Add(planet.PlanetXCoord);
+                }
             }
             return xes;
         }
 
-        public List<int> getPlanetYCoord()
+        public List<int> getPlanetYCoord(string starName)
         {
             List<int> yses = new List<int>();
             foreach (var planet in planets)
             {
-                yses.Add(planet.PlanetYCoord);
+                if (planet.PlanetStar == starName)
+                {
+                    yses.Add(planet.PlanetYCoord);
+                }
             }
             return yses;
         }
 
-        public List<string> getPlanetSymbol()
+        public List<string> getPlanetSymbol(string starName)
         {
             List<string> zses = new List<string>();
             foreach (var planet in planets)
             {
-                zses.Add(planet.PlanetSymbol);
+                if (planet.PlanetStar == starName)
+                {
+                    zses.Add(planet.PlanetSymbol);
+                }
             }
             return zses;
         }
@@ -55,6 +64,18 @@ namespace Space_Trading
         public int numPlanets(string star)
             => planets.Where(p => p.PlanetStar == star)
                       .Count();
+        public int planetsInSys(string starName)
+        {
+            int count = 0;
+            foreach (var planet in planets)
+            {
+                if (planet.PlanetStar == starName)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
 
         public void generatePlanetList(string planetPath)
         {

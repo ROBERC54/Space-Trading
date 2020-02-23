@@ -61,7 +61,6 @@ namespace Space_Trading
         public void generateStarList(string starPath)
         {
             List<string> lines = File.ReadAllLines(starPath).ToList();
-            List<Star> stars = new List<Star>();
 
             foreach (var line in lines)
             {
