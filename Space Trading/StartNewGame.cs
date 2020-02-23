@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Space_Trading
 {
@@ -58,10 +59,30 @@ namespace Space_Trading
         public void Continue()
         {
             Console.Clear();
-            Console.WriteLine("Hey there, Space Trader!");
-            Console.WriteLine("Welcome to the Universe!  Using your handy dandy spaceship, get on down to the customer, wherever they may be across the galaxy!");
-            Console.WriteLine("Give them whatever you can find in exchange for currency!");
-            Console.WriteLine("Press any key to continue:");
+            string c1 = "Hey there, Space Trader!";
+            string c2 = "Welcome to the Universe!  Using your handy dandy spaceship, get on down to the customer, wherever they may be across the galaxy!";
+            string c3 = "Give them whatever you can find in exchange for currency!";
+            for (int i = 0; i < c1.Length; i++)
+            {
+                for (int j = 0; j < 7000000; j++)
+                { }
+                Console.Write(c1.ElementAt(i));
+            }
+            Console.WriteLine();
+            for (int i = 0; i < c2.Length; i++)
+            {
+                for (int j = 0; j < 7000000; j++)
+                { }
+                Console.Write(c2.ElementAt(i));
+            }
+            Console.WriteLine();
+            for (int i = 0; i < c3.Length; i++)
+            {
+                for (int j = 0; j < 7000000; j++)
+                { }
+                Console.Write(c3.ElementAt(i));
+            }
+            Console.WriteLine("\nPress any key to continue:");
             //TODO!:generate a player Inventory
             new InventoryClass().RunProtagonist();
             //TODO!:generate a player stat sheet

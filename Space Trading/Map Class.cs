@@ -49,11 +49,11 @@ namespace Space_Trading
                 List<int> yses = starClass1.getStarYCoord();
                 List<string> zses = starClass1.getStarSymbol();
 
-                int numInSys = starClass1.numStars(symbol);
+                int numInSys = starClass1.numStars(symbol);//use xes.Count until this works
 
                 for (int i = 0; i < xes.Count; i++)
                 {
-                    grid[xes[i], yses[i]] = "S";
+                    grid[xes[i], yses[i]] = zses[i];
                 }
 
                 BlackHoleClass blackHoleClass1 = new BlackHoleClass();
@@ -63,8 +63,9 @@ namespace Space_Trading
                 {
                     grid[blxes[i], blyses[i]] = " ";
                 }
-
+                    
                 string characterPos = "<";
+                    grid[userx, usery] = characterPos;
 
                 for (Row = 0; Row < gridSize; Row++)
                 {
@@ -76,7 +77,6 @@ namespace Space_Trading
                         Console.Write(grid[Column, Row] + " ");
                     }
 
-                    grid[userx, usery] = characterPos;
 
                 }
 
@@ -88,6 +88,10 @@ namespace Space_Trading
                     if ((xes[i], yses[i]) == (userx, usery))
                     {
                         var starName = starClass1.StarAt(userx, usery).StarName;
+                        Console.Clear();
+                        Console.WriteLine($"Now entering the {starName} system:");
+                        Console.WriteLine("Press any key to continue:");
+                        Console.ReadKey();
                         starMap.Run(starName);
                     }
                 }

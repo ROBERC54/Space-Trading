@@ -10,13 +10,18 @@ namespace Space_Trading
     public class PlanetMapClass
     {
         BuildingClass buildingClass = new BuildingClass();
+        string planet;
 
-        public void Run(string planet)
+        public void Run(string planetName)
+        {
+            planet = planetName;
+            Run();
+        }
+        public void Run()
         {
             bool quit;
             int userx = 1;
             int usery = 1;
-
 
             do
             {
@@ -42,17 +47,19 @@ namespace Space_Trading
 
                 BuildingClass buildingClass1 = new BuildingClass();
                 //Console.WriteLine("yowassup");
-                List<int> xes = buildingClass1.getBuildingXCoord();
-                List<int> yses = buildingClass1.getBuildingYCoord();
+                int onPlCount = buildingClass1.buildingsOnPlanet(planet);
+                List<int> xes = buildingClass1.getBuildingXCoord(planet);
+                List<int> yses = buildingClass1.getBuildingYCoord(planet);
+                List<string> zses = buildingClass1.getBuildingSymbol(planet);
                 //Console.ReadLine();
-                int numInSys = buildingClass1.numBuildings(planet);
-
+                int numInSys = buildingClass1.numBuildings(planet);//use onPlCount until this works
                 for (int i = 0; i < numInSys; i++)
                 {
-                    grid[xes[i], yses[i]] = "B";//change to building symbol in the future
+                    grid[xes[i], yses[i]] = zses[i];
                 }
 
                 string characterPos = "<";
+                grid[userx, usery] = characterPos;
                 for (Row = 0; Row < gridSize; Row++)
                 {
 
@@ -63,11 +70,23 @@ namespace Space_Trading
                         Console.Write(grid[Column, Row] + " ");
                     }
 
-                    grid[userx, usery] = characterPos;
 
                 }
                 var key = mapScreenSelect();
                 (quit, userx, usery) = MoveMent(key, userx, usery);
+
+                for (int i = 0; i < xes.Count; i++)
+                {
+                    if ((xes[i], yses[i]) == (userx, usery))
+                    {
+                        var buildingName = buildingClass1.BuildingAt(userx, usery).BuildingName;
+                        Console.Clear();
+                        Console.WriteLine($"Now entering a {buildingName} on {planet}:");
+                        Console.WriteLine("Press any key to continue:");
+                        Console.ReadKey();
+                        //barterClass.Run(planet, buildingName);
+                    }
+                }
             } while (!quit);
         }
         private ConsoleKey mapScreenSelect()
