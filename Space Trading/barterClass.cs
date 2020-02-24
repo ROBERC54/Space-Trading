@@ -69,6 +69,7 @@ namespace Space_Trading
                 quit = UserChoice(key);
 
             } while (!quit);
+            Console.Clear();
             Console.WriteLine("A pleasure to do business with you!");
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();

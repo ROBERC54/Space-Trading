@@ -101,9 +101,6 @@ namespace Space_Trading
                                                     //    Console.WriteLine(item);
                                                     //}
                                                     //Console.ReadLine();
-
-            new Resume().Run();
-            new Map_Class().Run();
         }
         public List<string> generateItemList()
         {
@@ -249,8 +246,6 @@ namespace Space_Trading
                 Console.WriteLine("Here's what I'm willing to pay:");
                 Console.WriteLine("Price:");
                 currPrice = printPrices(season, choiceNum, protInvList);
-                Console.WriteLine(protInvList.Count);
-                Console.ReadKey();
                 var key = mainMenuSelect();
                 bool sold = false;
                 (quit, choiceNum, sold) = UserChoiceSell(key, choiceNum, money, currInvSize, lastItem);
@@ -258,6 +253,11 @@ namespace Space_Trading
                 {
                     protInvList.RemoveAt(choiceNum);
                     money += currPrice;
+                    if (money > 10000)
+                    {
+                        Console.Clear();
+                        new WinConditionClass().Run();
+                    }
                     saveData(money, protInvList);
                 }
 
