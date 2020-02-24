@@ -35,8 +35,8 @@ namespace Space_Trading
 
                 //Console.WriteLine("Welcome to the Battleship");
 
-                string[,] grid = new string[gridSize, gridSize];
-
+                string[,] grid = new string[gridSize, gridSize];//each element in the grid as displayed to the console represents 1 lightyear distance from adjoining elements
+                //using warp factor of 1 in (W^(10/3))+(10-W)^(-11/3) 
 
                 for (int j = 0; j < gridSize; j++)
                 {
@@ -183,8 +183,8 @@ namespace Space_Trading
             List<string> lines = File.ReadAllLines(protDocs).ToList();
             int age = int.Parse(lines[0]);
             age += 1;
-            int money = 1000;
-            if (age > 66)
+            int money = int.Parse(lines[1]);
+            if (age > 64)
             {
                 new WinConditionClass().Run(age, money);
             }

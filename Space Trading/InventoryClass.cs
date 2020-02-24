@@ -85,7 +85,7 @@ namespace Space_Trading
             }
             string protDocs = "Protagonist Info.txt";
             List<string> info = new List<string>();
-            info.Add("58");
+            info.Add("18");
             info.Add("10000");
             Console.Clear();
             Console.WriteLine("What is your name?");

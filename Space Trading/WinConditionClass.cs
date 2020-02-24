@@ -29,7 +29,7 @@ namespace Space_Trading
             do
             {
                 Console.Clear();
-                string lastTime = $"Congratulations: You're more than {age} years old!  You've got {money} in the bank!  Enjoy retirement!  You've won!                             ";
+                string lastTime = $"Congratulations: You're more than {age} years old!  You've got {money} in the bank!  Hope you have enough to enjoy retirement!  You've lost!                             ";
                 for (int i = 0; i < lastTime.Length; i++)
                 {
                     for (int j = 0; j < 19000000; j++)
