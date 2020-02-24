@@ -85,7 +85,7 @@ namespace Space_Trading
             }
             string protDocs = "Protagonist Info.txt";
             List<string> info = new List<string>();
-            info.Add("18");
+            info.Add("58");
             info.Add("10000");
             Console.Clear();
             Console.WriteLine("What is your name?");
@@ -153,7 +153,7 @@ namespace Space_Trading
             {
                 int currInvSize = protInvList.Count;
                 logoDisp();
-                Console.WriteLine("\noptions: buy = b | previous = <- | next = -> | quit = q\n");
+                Console.WriteLine($"\noptions: buy = b | previous = <- | next = -> | quit = q\nFunds: {money}");
                 Console.WriteLine("Buy?  Here's what I have:");
                 Console.WriteLine("Price:");
                 currPrice=printPrices(season, choiceNum, shopInvList);
@@ -242,8 +242,8 @@ namespace Space_Trading
                     lastItem = true;
                 }
                 logoDisp();
-                Console.WriteLine("\noptions: sell = s | previous = <- | next = -> | quit = q\n");
-                Console.WriteLine("Here's what I'm willing to pay:");
+                Console.WriteLine($"\noptions: sell = s | previous = <- | next = -> | quit = q\nFunds: {money}");
+                Console.WriteLine("I'm willing to part with:");
                 Console.WriteLine("Price:");
                 currPrice = printPrices(season, choiceNum, protInvList);
                 var key = mainMenuSelect();
@@ -258,8 +258,8 @@ namespace Space_Trading
                         Console.Clear();
                         new WinConditionClass().Run();
                     }
-                    saveData(money, protInvList);
                 }
+                    saveData(money, protInvList);
 
             } while (!quit);
             Console.WriteLine("Any time!");
@@ -300,13 +300,13 @@ namespace Space_Trading
                 case ConsoleKey.B: //make purchase
                     if (currPrice > money)
                     {
-                        Console.WriteLine("You can't afford that!");
+                        Console.WriteLine("\nYou can't afford that!");
                         Console.ReadKey();
                         return (false, choiceNum, false);
                     }
                     if (currInvSize > 9)
                     {
-                        Console.WriteLine("Your inventory is full!");
+                        Console.WriteLine("\nYour inventory is full!");
                         Console.ReadKey();
                         return (false, choiceNum, false);
                     }
@@ -422,6 +422,13 @@ namespace Space_Trading
             string protDocs = "Protagonist Info.txt";
             List<string> lines = File.ReadAllLines(protDocs).ToList();
             lines[1] = newMoney;
+            int age = int.Parse(lines[0]);
+            age += 1;
+            if (age > 66)
+            {
+                new WinConditionClass().Run(age, money);
+            }
+            lines[0] = age.ToString();
             File.WriteAllLines(protDocs, lines);
             List<string> items = new List<string>();
             foreach (Inventory item in protInvList)

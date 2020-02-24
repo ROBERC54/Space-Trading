@@ -91,7 +91,7 @@ namespace Space_Trading
 
 
             Console.Clear(); Console.Clear();
-            string lastTime = $"All is well\nYou've got your youth, as you're only 18 years old.\nYour ship is functional and you've 10000 in your wallet.\nYou find yourself outside a remote star system...";
+            string lastTime = $"All is well\nYou've got your youth, as you're only 58 years old.\nYour ship is functional and you've 10000 in your wallet.\nYou find yourself outside a local star system...";
             for (int i = 0; i < lastTime.Length; i++)
             {
                 for (int j = 0; j < 7000000; j++)
