@@ -147,19 +147,28 @@ namespace Space_Trading
             List<Inventory> protInvList = new List<Inventory>();
             List<Inventory> protInfo = new List<Inventory>();
             int money =int.Parse(pullProt(out protInvList));
+            int currPrice;
             genShopInv(symbol);
             
             bool quit;
             int choiceNum=0;
             do
             {
+                int currInvSize = protInvList.Count;
                 logoDisp();
                 Console.WriteLine("\noptions: buy = b | previous = <- | next = -> | quit = q\n");
                 Console.WriteLine("Buy?  Here's what I have:");
                 Console.WriteLine("Price:");
-                printPrices(season, choiceNum);
+                currPrice=printPrices(season, choiceNum, shopInvList);
                 var key = mainMenuSelect();
-                (quit, choiceNum) = UserChoice(key, choiceNum);
+                bool sold = false;
+                (quit, choiceNum, sold) = UserChoice(key, choiceNum, money, currPrice, currInvSize);
+                if(sold)
+                {
+                    protInvList.Add(shopInvList.ElementAt(choiceNum));
+                    money -= currPrice;
+                    saveData(money, protInvList);
+                }
 
             } while (!quit);
             Console.WriteLine("Any time!");
@@ -189,38 +198,74 @@ namespace Space_Trading
                 }
             }
         }
-        public void printPrices(int season, int choiceNum)
+        public int printPrices(int season, int choiceNum, List<Inventory> thisInvList)
         {
-            string currItem = shopInvList.ElementAt(choiceNum).ItemName;
+            string currItem = thisInvList.ElementAt(choiceNum).ItemName;
             int currPrice=0;
-            foreach (Inventory item in shopInvList)
+            foreach (Inventory item in thisInvList)
             {
                 if (season == 0)
                 {
                     Console.WriteLine($"{item.SpringPrice}      for {item.ItemName} ");
-                    currPrice = shopInvList.ElementAt(choiceNum).SpringPrice;
+                    currPrice = thisInvList.ElementAt(choiceNum).SpringPrice;
                 }
                 else if (season == 1)
                 {
                     Console.WriteLine($"{item.SummerPrice}      for {item.ItemName} ");
-                    currPrice = shopInvList.ElementAt(choiceNum).SummerPrice;
+                    currPrice = thisInvList.ElementAt(choiceNum).SummerPrice;
                 }
                 else if (season == 2)
                 {
                     Console.WriteLine($"{item.AutumnPrice}      for {item.ItemName} ");
-                    currPrice = shopInvList.ElementAt(choiceNum).AutumnPrice;
+                    currPrice = thisInvList.ElementAt(choiceNum).AutumnPrice;
                 }
                 else if (season == 3)
                 {
                     Console.WriteLine($"{item.WinterPrice}      for {item.ItemName} ");
-                    currPrice = shopInvList.ElementAt(choiceNum).WinterPrice;
+                    currPrice = thisInvList.ElementAt(choiceNum).WinterPrice;
                 }
             }
             Console.WriteLine($"Would you like the {currItem} for {currPrice}?");
+            return currPrice;
         }
         public void sell(int season)
         {
+            List<Inventory> protInvList = new List<Inventory>();
+            List<Inventory> protInfo = new List<Inventory>();
+            int money = int.Parse(pullProt(out protInvList));
+            int currPrice;
+            bool quit;
+            int choiceNum = 0;
+            do
+            {
+                int currInvSize = protInvList.Count;
+                bool lastItem=false;
+                if (currInvSize == 1)
+                {
+                    lastItem = true;
+                }
+                logoDisp();
+                Console.WriteLine("\noptions: sell = s | previous = <- | next = -> | quit = q\n");
+                Console.WriteLine("Here's what I'm willing to pay:");
+                Console.WriteLine("Price:");
+                currPrice = printPrices(season, choiceNum, protInvList);
+                Console.WriteLine(protInvList.Count);
+                Console.ReadKey();
+                var key = mainMenuSelect();
+                bool sold = false;
+                (quit, choiceNum, sold) = UserChoiceSell(key, choiceNum, money, currInvSize, lastItem);
+                if (sold)
+                {
+                    protInvList.RemoveAt(choiceNum);
+                    money += currPrice;
+                    saveData(money, protInvList);
+                }
 
+            } while (!quit);
+            Console.WriteLine("Any time!");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            Console.Clear();
         }
         public void logoDisp()
         {
@@ -232,10 +277,6 @@ namespace Space_Trading
             Console.WriteLine("    | |     |     )   |  |  )  | | |  | | |  |");
             Console.WriteLine("    | |     |  |)  )  |  |  |  | | |__| | |  |_____");
             Console.WriteLine("    |_|     |__| )__) |__|  |__| |______| |________|\n");
-        }
-        public void pricescheme()
-        {
-
         }
         private ConsoleKey mainMenuSelect()
         {
@@ -252,42 +293,107 @@ namespace Space_Trading
             return Console.ReadKey().Key;
         }
 
-        public (bool, int) UserChoice(ConsoleKey key, int choiceNum)
+        public (bool, int, bool) UserChoice(ConsoleKey key, int choiceNum, int money, int currPrice, int currInvSize)
         {
             switch (key)
             {
                 case ConsoleKey.B: //make purchase
-
+                    if (currPrice > money)
+                    {
+                        Console.WriteLine("You can't afford that!");
+                        Console.ReadKey();
+                        return (false, choiceNum, false);
+                    }
+                    if (currInvSize > 9)
+                    {
+                        Console.WriteLine("Your inventory is full!");
+                        Console.ReadKey();
+                        return (false, choiceNum, false);
+                    }
+                    return (false, choiceNum, true);
                     break;
 
                 case ConsoleKey.LeftArrow: //previous item
                     if (choiceNum == 0)
-                    {   choiceNum = 9;
-                        return (false, choiceNum);
+                    {
+                        choiceNum = 9;
+                        return (false, choiceNum, false);
                     }
-                    else if (choiceNum !=0)
-                    { choiceNum--; 
-                    return (false, choiceNum);}
+                    else if (choiceNum != 0)
+                    {
+                        choiceNum--;
+                        return (false, choiceNum, false);
+                    }
                     break;
 
                 case ConsoleKey.RightArrow: //next item
                     if (choiceNum == 9)
-                    {    choiceNum = 0;
-                         return (false, choiceNum);
+                    {
+                        choiceNum = 0;
+                        return (false, choiceNum, false);
                     }
-                    else if(choiceNum!=9)
-                    {   choiceNum++; 
-                        return (false, choiceNum);
+                    else if (choiceNum != 9)
+                    {
+                        choiceNum++;
+                        return (false, choiceNum, false);
                     }
                     break;
 
                 case ConsoleKey.Q:
                     Console.Clear();
-                    return (true, choiceNum);
+                    return (true, choiceNum, false);
 
             }
 
-            return (false, choiceNum);
+            return (false, choiceNum, false);
+        }
+        public (bool, int, bool) UserChoiceSell(ConsoleKey key, int choiceNum, int money, int currInvSize, bool lastItem)
+        {
+            switch (key)
+            {
+                case ConsoleKey.S: //make purchase
+                    if (lastItem)
+                    {
+                        Console.WriteLine("You should hold on to your last item!");
+                        Console.ReadKey();
+                        return (false, choiceNum, false);
+                    }
+                    return (false, choiceNum, true);
+                    break;
+
+                case ConsoleKey.LeftArrow: //previous item
+                    if (choiceNum == 0)
+                    {
+                        choiceNum = (currInvSize-1);
+                        return (false, choiceNum, false);
+                    }
+                    else if (choiceNum != 0)
+                    {
+                        choiceNum--;
+                        return (false, choiceNum, false);
+                    }
+                    break;
+
+                case ConsoleKey.RightArrow: //next item
+                    if (choiceNum == (currInvSize-1))
+                    {
+                        choiceNum = 0;
+                        return (false, choiceNum, false);
+                    }
+                    else if (choiceNum != (currInvSize-1))
+                    {
+                        choiceNum++;
+                        return (false, choiceNum, false);
+                    }
+                    break;
+
+                case ConsoleKey.Q:
+                    Console.Clear();
+                    return (true, choiceNum, false);
+
+            }
+
+            return (false, choiceNum, false);
         }
         public string pullProt(out List<Inventory> thisprotInvList)
         {
@@ -308,6 +414,22 @@ namespace Space_Trading
             }*/
             string money = info.ElementAt(1);
             return money;
+        }
+        public void saveData(int money, List<Inventory> protInvList)
+        {
+            string newMoney = $"{money}";
+            string protPath = "Protagonist Inventory.txt";
+            string protDocs = "Protagonist Info.txt";
+            List<string> lines = File.ReadAllLines(protDocs).ToList();
+            lines[1] = newMoney;
+            File.WriteAllLines(protDocs, lines);
+            List<string> items = new List<string>();
+            foreach (Inventory item in protInvList)
+            {
+                string fullLine = $"{item.ItemName}, {item.SpringPrice}, {item.SummerPrice}, {item.AutumnPrice}, {item.WinterPrice}, {item.ArenaSymbol}";
+                items.Add(fullLine);
+            }
+            File.WriteAllLines(protPath, items);
         }
     }
 
