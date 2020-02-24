@@ -18,11 +18,14 @@ namespace Space_Trading
             int userx = 1;
             int usery = 1;
 
+
             do
             {
                 // This is where we found inspiration for our map function
                 //https://social.msdn.microsoft.com/Forums/en-US/38cecb47-ef2c-47d3-ae1d-e53a1c56e2e9/battle-ship-coding-in-c-using-console-application?forum=csharpgeneral
                 Console.Clear();
+                SaveData();
+
                 Console.WriteLine("\nmovement: left = a | right = d | up = w | down = s | quit = q\n");
                 int gridSize = 30;
 
@@ -63,9 +66,9 @@ namespace Space_Trading
                 {
                     grid[blxes[i], blyses[i]] = " ";
                 }
-                    
+
                 string characterPos = "<";
-                    grid[userx, usery] = characterPos;
+                grid[userx, usery] = characterPos;
 
                 for (Row = 0; Row < gridSize; Row++)
                 {
@@ -173,6 +176,20 @@ namespace Space_Trading
                     return (true, userx, usery);
             }
             return (false, userx, usery);
+        }
+        public void SaveData()
+        {
+            string protDocs = "Protagonist Info.txt";
+            List<string> lines = File.ReadAllLines(protDocs).ToList();
+            int age = int.Parse(lines[0]);
+            age += 1;
+            int money = 1000;
+            if (age > 66)
+            {
+                new WinConditionClass().Run(age, money);
+            }
+            lines[0] = age.ToString();
+            File.WriteAllLines(protDocs, lines);
         }
     }
 }
