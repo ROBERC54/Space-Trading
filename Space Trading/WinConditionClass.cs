@@ -9,6 +9,7 @@ namespace Space_Trading
     {
         public void Run()
         {
+            int runTimes = 3;
             do
             {
                 Console.Clear();
@@ -18,8 +19,25 @@ namespace Space_Trading
                     for (int j = 0; j < 19000000; j++)
                     { }
                     Console.Write(lastTime.ElementAt(i));
-                }
-            } while (true);
+                }runTimes--;
+            } while (runTimes!=0);
+            new Main_Menu().Run();
+        }
+        public void Run(int age, int money)
+        {
+            int runTimes = 5;
+            do
+            {
+                Console.Clear();
+                string lastTime = $"Congratulations: You're more than {age} years old!  You've got {money} in the bank!  Enjoy retirement!  You've won!                             ";
+                for (int i = 0; i < lastTime.Length; i++)
+                {
+                    for (int j = 0; j < 19000000; j++)
+                    { }
+                    Console.Write(lastTime.ElementAt(i));
+                }runTimes--;
+            } while (runTimes!=0);
+            new Main_Menu().Run();
         }
     }
 }
